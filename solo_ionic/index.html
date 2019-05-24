@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Соло ионик</title>
+    <script src="https://unpkg.com/@ionic/core@latest/dist/ionic.js"></script>
+    <link
+      href="https://unpkg.com/@ionic/core@latest/css/ionic.bundle.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <ion-app>
+        
+      <ion-header>
+        <ion-toolbar color="primary">
+          <ion-tittle>Соло ионик</ion-tittle>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content>
+        <ion-grid>
+          <ion-row>
+            <ion-col size-md = "6" offset-md = '3'>
+              <ion-card>
+                <ion-card-header> Новый сервер</ion-card-header>
+                <ion-card-content>
+                  <ion-item >
+                    <ion-label position="floating">Название</ion-label>
+                    <ion-input type="text" id='input-name'></ion-input>
+                  </ion-item>
+                  <ion-item >
+                    <ion-label position="floating">URL</ion-label>
+                    <ion-input type="text" id='input-utl'></ion-input>
+                  </ion-item>
+                  <ion-button id='button-cancel' class="ion-float-left" fill='outline' color='danger'>
+                      <ion-icon slot='start' name='close'></ion-icon>Очистить</ion-button>
+                  <ion-button id='button-confirm ' class="ion-float-right"><ion-icon slot='start' name='add-circle-outline'></ion-icon>Добавить</ion-button>
+                </ion-card-content>
+              </ion-card>
+            </ion-col>
+          </ion-row>
+          <ion-row>
+              <ion-col>
+                <ion-list id = 'server_list'></ion-list>
+
+              </ion-row>
+
+
+          </ion-row>
+
+        </ion-grid>
+      </ion-content>
+    </ion-app>
+    <script src="app.js"></script>
+  </body>
+</html>

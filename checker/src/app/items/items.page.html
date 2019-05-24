@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-toolbar color='primary'>
+    <ion-title>Сервисы</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let item of items" [routerLink]="['/items', item.id]">
+        <ion-icon *ngIf='!item.status' name="sad"></ion-icon>
+        <ion-icon *ngIf='item.status' name="happy"></ion-icon>
+        <!-- <ion-label>{{ item.status }}</ion-label> -->
+        <ion-label>{{ item.id }}</ion-label>
+        <ion-label>{{ item.name }}</ion-label>
+        <ion-label>{{ item.url }}</ion-label>
+    </ion-item>
+  </ion-list>
+</ion-content>

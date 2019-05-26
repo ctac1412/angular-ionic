@@ -1,0 +1,7 @@
+{
+  "appId": "io.ionic.tuilenev.checker",
+  "appName": "checker",
+  "bundledWebRuntime": false,
+  "npmClient": "npm",
+  "webDir": "www"
+}

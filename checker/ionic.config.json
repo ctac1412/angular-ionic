@@ -1,5 +1,7 @@
 {
   "name": "checker",
-  "integrations": {},
+  "integrations": {
+    "capacitor": {}
+  },
   "type": "angular"
 }

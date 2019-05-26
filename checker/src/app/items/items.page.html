@@ -1,18 +1,97 @@
+
 <ion-header>
-  <ion-toolbar color='primary'>
-    <ion-title>Сервисы</ion-title>
+  <ion-toolbar color="primary">
+    <ion-title text-center>Документы</ion-title>
+
+    <ion-buttons slot="primary" >
+      <ion-button (click)="onRefreshClick()">
+        <ion-icon name="refresh" slot="icon-only"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+
   </ion-toolbar>
 </ion-header>
 
+
+</ion-title>
+
 <ion-content>
+        <!-- <div class="row header">
+          <div class="col">Utility Company Name</div>
+          <div class="col">Service Code</div>
+          <div class="col">Pay Limit</div>
+          <div class="col">Account Number to Use</div>
+        </div>
+        <div class="row" *ngFor="let odooRequest of odooRequests">
+          <div class="col">{{odooRequest.state}}</div>
+          <div class="col">{{odooRequest.name_field}}</div>
+          <div class="col">{{odooRequest.protocol_num}}</div>
+          <div class="col">{{odooRequest.application_name}}</div>
+          <div class="col"><button class="button" ng-click="ctrl.add($index)">Add</button></div>
+        </div> -->
+  <ion-label *ngIf='isItemsLoading'>Мы загружаем список... Честно честно</ion-label>
+    <ion-grid *ngIf='!isItemsLoading'>
+    <ion-row>
+      <ion-col class="col">
+        Статус
+      </ion-col>
+      <ion-col class="col">
+        Номер активного документа
+      </ion-col>
+      <ion-col class="col">
+        Номер протокола
+      </ion-col>
+      <ion-col class="col">
+        Номер
+      </ion-col>
+    </ion-row>
+
+    <ion-row *ngFor="let odooRequest of odooRequests" [routerLink]="['/items', odooRequest.id]">
+      <ion-col class="col"></ion-col>
+      <ion-col class="col">
+        {{ odooRequest.name_field }}
+      </ion-col>
+      <ion-col class="col">
+        {{ odooRequest.protocol_num }}
+      </ion-col>
+      <ion-col class="col">
+        {{ odooRequest.application_name }}
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+
   <ion-list>
-    <ion-item *ngFor="let item of items" [routerLink]="['/items', item.id]">
-        <ion-icon *ngIf='!item.status' name="sad"></ion-icon>
-        <ion-icon *ngIf='item.status' name="happy"></ion-icon>
-        <!-- <ion-label>{{ item.status }}</ion-label> -->
-        <ion-label>{{ item.id }}</ion-label>
-        <ion-label>{{ item.name }}</ion-label>
-        <ion-label>{{ item.url }}</ion-label>
-    </ion-item>
+    <ion-item><ion-label><h2>{{ odooRequest.state }}/h2></ion-label></ion-item>
+    <ion-item><ion-label><h2>Item 2</h2></ion-label></ion-item>
+    <ion-item><ion-label><h2>Item 3</h2></ion-label></ion-item>
+  
   </ion-list>
 </ion-content>
+
+  <ion-nav-pop>
+  </ion-nav-pop>
+
+
+          <ion-nav-push>
+          </ion-nav-push>
+        
+  <ion-infinite-scroll>
+    <ion-infinite-scroll-content>
+              <ion-button>Back</ion-button>
+            
+              <ion-button>Forward</ion-button>
+            </ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+
+  <ion-slides>
+    <ion-slide>
+      <h1>Slide 1</h1>
+    </ion-slide>
+    <ion-slide>
+      <h1>Slide 2</h1>
+    </ion-slide>
+    <ion-slide>
+      <h1>Slide 3</h1>
+    </ion-slide>
+  </ion-slides>
